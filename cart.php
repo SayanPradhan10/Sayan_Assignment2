@@ -5,7 +5,7 @@ if (!isLoggedIn()) {
     redirect('login.php');
 }
 
-// Handle quantity updates
+
 if (isset($_POST['update_quantity'])) {
     $cart_id = $_POST['cart_id'];
     $quantity = (int)$_POST['quantity'];
@@ -22,7 +22,7 @@ if (isset($_POST['update_quantity'])) {
     redirect('cart.php');
 }
 
-// Handle item removal
+
 if (isset($_POST['remove_item'])) {
     $cart_id = $_POST['cart_id'];
     
@@ -33,7 +33,7 @@ if (isset($_POST['remove_item'])) {
     redirect('cart.php');
 }
 
-// Get cart items with product details
+
 $stmt = $pdo->prepare("
     SELECT c.id as cart_id, c.quantity, p.id as product_id, p.name, p.description, p.price, p.image 
     FROM cart c 
@@ -43,13 +43,13 @@ $stmt = $pdo->prepare("
 $stmt->execute([$_SESSION['user_id']]);
 $cart_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Calculate total
+
 $total = 0;
 foreach ($cart_items as $item) {
     $total += $item['price'] * $item['quantity'];
 }
 
-// Get cart count
+
 $cart_count = 0;
 $stmt = $pdo->prepare("SELECT SUM(quantity) as total FROM cart WHERE user_id = ?");
 $stmt->execute([$_SESSION['user_id']]);
