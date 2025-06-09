@@ -7,7 +7,7 @@ if (!isset($_SESSION['admin'])) {
 include "../db.php";
 
 if (isset($_GET['id'])) {
-    $id = (int)$_GET['id']; // cast to int for safety
+    $id = (int)$_GET['id']; 
 
     $stmt = $mysqli->prepare("DELETE FROM products WHERE id = ?");
     $stmt->bind_param("i", $id);
