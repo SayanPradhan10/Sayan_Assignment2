@@ -1,8 +1,8 @@
--- Create the database
+
 CREATE DATABASE IF NOT EXISTS product_data;
 USE product_data;
 
--- Users table
+
 CREATE TABLE users (
   id int(11) NOT NULL AUTO_INCREMENT,
   username varchar(50) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE users (
   UNIQUE KEY email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Products table
+
 CREATE TABLE products (
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE products (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Cart table
+
 CREATE TABLE cart (
   id int(11) NOT NULL AUTO_INCREMENT,
   user_id int(11) NOT NULL,
@@ -41,11 +41,11 @@ CREATE TABLE cart (
   CONSTRAINT cart_ibfk_2 FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Insert admin user (password: admin123)
+
 INSERT INTO users (username, password, email, is_admin) VALUES
 ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@example.com', 1);
 
--- Insert regular user (password: user123)
+
 INSERT INTO users (username, password, email) VALUES
 ('user', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user@example.com');
 
