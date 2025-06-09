@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $price = trim($_POST['price']);
     $image = trim($_POST['image_url']);
 
-    // Validate inputs
+   
     if (empty($name)) {
         $errors[] = "Product name is required";
     }
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Valid price is required";
     }
 
-    // Validate image URL
+  
     if (empty($image)) {
         $errors[] = "Image URL is required";
     } else {
@@ -243,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     
     <script>
-        // Preview the image from URL
+      
         const imageUrlInput = document.getElementById('image_url');
         const imagePreview = document.getElementById('imagePreview');
 
@@ -257,7 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         });
 
-        // Trigger preview on load if already filled
+        
         window.addEventListener('DOMContentLoaded', () => {
             if (imageUrlInput.value.trim()) {
                 imageUrlInput.dispatchEvent(new Event('input'));
