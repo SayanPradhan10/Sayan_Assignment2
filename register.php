@@ -99,7 +99,7 @@
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
             
-            // Validate inputs
+            
             $errors = [];
             
             if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
@@ -114,7 +114,7 @@
                 $errors[] = "Password must be at least 6 characters";
             }
             
-            // Check if username or email exists
+          
             $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
             $stmt->execute([$username, $email]);
             
