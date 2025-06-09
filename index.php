@@ -328,7 +328,7 @@ if (isLoggedIn()) {
             document.getElementById('productModal').style.display = 'none';
         }
         
-        // Close modal when clicking outside
+        
         window.onclick = function(event) {
             const modal = document.getElementById('productModal');
             if (event.target === modal) {
