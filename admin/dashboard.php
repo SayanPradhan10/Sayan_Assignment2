@@ -207,7 +207,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <td><?= $product['id'] ?></td>
                         <td><?= htmlspecialchars($product['name']) ?></td>
-                        <td>$<?= number_format($product['price'], 2) ?></td>
+                        <td>₹<?= number_format($product['price'], 2) ?></td>
                         <td><?= htmlspecialchars($product['image']) ?></td>
                         <td>
                             <a href="edit_product.php?id=<?= $product['id'] ?>" class="btn btn-primary">Edit</a>
