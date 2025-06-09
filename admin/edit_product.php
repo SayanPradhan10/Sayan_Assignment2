@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 
 $product_id = $_GET['id'];
 
-// Get product details
+
 $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->execute([$product_id]);
 $product = $stmt->fetch();
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $price = trim($_POST['price']);
     $image_url = trim($_POST['image_url']);
     
-    // Validate inputs
+  
     if (empty($name)) {
         $errors[] = "Product name is required";
     }
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Valid price is required";
     }
     
-    // Validate image URL if provided
+    
     if (!empty($image_url)) {
         if (!filter_var($image_url, FILTER_VALIDATE_URL)) {
             $errors[] = "Invalid image URL format";
@@ -265,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     
     <script>
-        // Update image preview when URL changes
+        
         document.getElementById('image_url').addEventListener('input', function(e) {
             const preview = document.getElementById('currentImagePreview');
             const url = e.target.value.trim();
